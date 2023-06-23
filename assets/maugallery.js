@@ -129,8 +129,10 @@
       let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
       let imagesCollection = [];
       if (activeTag === "all") {
+      
         $(".item-column").each(function() {
           if ($(this).children("img").length) {
+          
             imagesCollection.push($(this).children("img"));
           }
         });
