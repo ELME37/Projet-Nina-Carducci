@@ -4,7 +4,8 @@
 
     const filter = document.querySelector('.filter')
     const img_gallery = document.querySelectorAll('.gallery-item img')
-    const galleryItems = document.querySelectorAll(".gallery-item")
+    const galleryItems = document.querySelectorAll('.gallery-item')
+    const container_item = document.querySelectorAll('.container_item')
 
  
    const images = document.querySelectorAll('img[data-index]');
@@ -35,7 +36,7 @@ function initFilterOnPageHome () {
     // Affichage de tous les images au click du bouton Tous
     button_all.addEventListener('click', () => {
         for(let i = 0; i < img_gallery.length; i++) {
-            galleryItems[i].classList.remove('inactif')
+            container_item[i].classList.remove('inactif')
         }
     })
 
@@ -66,11 +67,11 @@ function initFilterOnPageHome () {
         button_filter.addEventListener('click', async () =>  {
             for (let i = 0; i < galleryItems.length; i++) {
             
-                galleryItems[i].classList.remove('inactif')
+                container_item[i].classList.remove('inactif')
                 const galleryTag = galleryItems[i].dataset.galleryTag
 
                 if (galleryTag !== uniqueTags[j]) {
-                    galleryItems[i].classList.add('inactif')
+                    container_item[i].classList.add('inactif')
                 }
             } 
         })

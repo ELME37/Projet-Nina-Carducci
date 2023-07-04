@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap');
 
+
 body {
 	max-width: 1920px;
 	margin: auto;
@@ -92,39 +93,39 @@ body {
 	font-size: 14px;
 }
 
-#gallery {
-	/*	min-height: 100vh; */
-}
+
 .title{
 	text-align: center;
 	padding-block: 2em;
 }
-.gallery .nav {
-	justify-content: center;
-}
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-	color: #fff;
-	background-color: #BEB45A;
-	border-radius:0 ;
-}
-.nav-pills .nav-link {
-	color: #000
-}
+
 
 .gallery {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 16px;
-	grid-row-gap: 16px;
+	display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+	width: 85%;
+   gap: 14px;
   }
   
-  .gallery-item {
+  .container_item {
+	position: relative;
+    width: calc(100% / 3 - 10px);
+  }
+
+  .container_item:after {
+	content: "";
+	display: block;
+	padding-bottom: 100%;
+}
+
+  .gallery-item{
+	position: absolute;
+	width: 100%;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 100%;
-	height: 400px;
-	
   }
   
   .gallery-item img {
@@ -133,7 +134,7 @@ body {
 	object-fit: cover;
   }
 
-  .gallery-item.inactif {
+  .container_item.inactif {
 	display: none;
   }
 
@@ -144,8 +145,8 @@ body {
   }
 
   .button_filter{
-	margin: 4% 1%;
-	padding: 1% 1%;
+	margin: 2% 1%;
+	padding: 0.6% 1%;
 	border: none;
 	background-color: transparent;
 	font-family: 'Inter';
@@ -162,7 +163,7 @@ body {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 100vw;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.4);
 	z-index: 9999;
@@ -177,8 +178,8 @@ body {
   }
   
   .lightbox img {
-	max-width: 50%;
-	max-height: 50%;
+	max-width: 100%;
+	max-height: 1000%;
 	padding: 1rem;
 	border-radius: 0.3rem;
 	background-color: #fff;
@@ -188,7 +189,6 @@ body {
   
   .lightbox_prev,
   .lightbox_next {
-
 	top: 50%;
 	transform: translateY(-50%);
 	background: none;
@@ -207,6 +207,7 @@ body {
   
   .lightbox_next {
 	right: -15px;
+	margin-right: 15px;
   }
 
 .lightbox_container {
@@ -225,13 +226,15 @@ body {
 	padding-block: 3em;
 }
 .quote__text {
-	font-family: Spectral;
+	font-family: 'Spectral';
 	font-style: italic;
 	font-weight: 300;
+	line-height: 1.2;
+	font-size: calc(1.375rem + 1.5vw);
 
 }
 .quote__author {
-	font-family: Spectral;
+	font-family: 'Spectral';
 	font-weight: 800;
 	font-size: 22px;
 }
@@ -253,6 +256,7 @@ body {
 }
 
 #services .container {
+	width: 90%;
 	justify-content: space-between;
 	display: flex;
 	padding : 2em 0;
@@ -339,9 +343,7 @@ input[type="submit"] {
 	#about-me h6, #about-me p {
 		width: 100%;
 	}
-	.gallery-item {
-		height: 320px;
-	  }
+
 }
 @media screen and (max-width: 1000px){
 
@@ -401,19 +403,13 @@ input[type="submit"] {
 		right: 0;
 		z-index: -1;
 	}
-	.gallery-item {
-		height: 240px;
-	  }
 }
 
-@media screen and (max-width: 767px) {
-	.gallery {
-	grid-template-columns: 1fr 1fr;
-  	}
-  	.gallery-item {
-	height: 270px;
-  	}
-} 
+@media screen and (max-width: 768px) {
+.container_item {
+	width: calc(100% / 2 - 10px);
+  }
+}
 
 @media screen and (max-width: 650px) {
 	.top-header {
@@ -448,12 +444,14 @@ input[type="submit"] {
 	.picture {
 		width: 80%;
 	}
+
 }
 
 @media screen and (max-width: 576px) {
-	.gallery {
-	grid-template-columns: 1fr;
-  	}
-}
+	.container_item {
+		width: 100%;
+	  }
+	}
+
 
 
